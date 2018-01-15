@@ -5,6 +5,9 @@ Movement for character with complex collision shape
 Project example for UE 4.18 
 
 When you need to have a character with complex collision shape like a vehicle or a space ship or something similar - you will have character capsule size be too much bigger than needed. This will come to some restriction in movement of the character – character will not be able to come close to objects, move in narrow places and etc.
+
+![UE4-MultiCollisionMovement](https://github.com/h2ogit/UE4-MultiCollisionMovement/blob/master/1.png)
+
 The next solution is not a complete solution but just a one of the ways and example and can be used as entry point you can start from. It was used for flying objects mainly, but it also support other physics modes but I think other additional code changes will be required additionally.
 
 How to setup:
@@ -17,6 +20,8 @@ bOrientRotationToMovement or bUseControllerDesiredRotation
     •	For walking physics root capsule size should be based on main walkable mesh
     
 3.	You add MultiCollisionCapsuleComponent to cover the mesh shape and you build with this additional components complex shape of the character.
+
+![UE4-MultiCollisionMovement](https://github.com/h2ogit/UE4-MultiCollisionMovement/blob/master/2.png)
 
 How it works:
 1.	At character initialization movement component calls collect and update all MultiCollisionCapsuleComponent added to the character
@@ -31,6 +36,7 @@ Optimization:
     Disabling PhysicsRotation function and enabling Character FaceRotation function which should calc new rotation for current frame. Then you need to override physics mode function so it will pass your new calculated rotation to movement code.
 
 This system can be used with modular characters with some changes.
+
 
 
 
