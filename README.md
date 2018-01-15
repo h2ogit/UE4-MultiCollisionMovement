@@ -11,8 +11,11 @@ How to setup:
 1.	Character MC should have one of the following settings enabled:
 bOrientRotationToMovement or bUseControllerDesiredRotation
 2.	Change root collision size:
-    •	For flying physics you can drop root capsule size to unit and disable root capsule collision at all. 
+
+    •	For flying physics you can drop root capsule size to unit and disable root capsule collision at all.
+    
     •	For walking physics root capsule size should be based on main walkable mesh
+    
 3.	You add MultiCollisionCapsuleComponent to cover the mesh shape and you build with this additional components complex shape of the character.
 
 How it works:
