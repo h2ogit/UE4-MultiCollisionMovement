@@ -45,7 +45,7 @@ void UMultiCollisionMovementComponent::UpdateAdditionalUpdatedComponents()
 
 	// 2. Collect all additional collisions
 
-	auto CollisionComponents = MultiCollisionOwner->GetComponentsByClass(UMultiCollisionCapsuleComponent::StaticClass());
+	auto CollisionComponents = MultiCollisionOwner->GetComponents().Array();
 	for (int32 i = 0; i < CollisionComponents.Num(); i++)
 	{
 		if (auto AdditionalComponent = Cast<UMultiCollisionCapsuleComponent>(CollisionComponents[i]))

@@ -1,7 +1,6 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #include "TestMultiCollisionCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -71,25 +70,16 @@ void ATestMultiCollisionCharacter::SetupPlayerInputComponent(class UInputCompone
 	// handle touch devices
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ATestMultiCollisionCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ATestMultiCollisionCharacter::TouchStopped);
-
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ATestMultiCollisionCharacter::OnResetVR);
-}
-
-
-void ATestMultiCollisionCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
 }
 
 void ATestMultiCollisionCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		Jump();
+	Jump();
 }
 
 void ATestMultiCollisionCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		StopJumping();
+	StopJumping();
 }
 
 void ATestMultiCollisionCharacter::TurnAtRate(float Rate)

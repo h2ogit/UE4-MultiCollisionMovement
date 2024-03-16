@@ -8,6 +8,9 @@ public class TestMultiCollisionTarget : TargetRules
 	public TestMultiCollisionTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		ExtraModuleNames.Add("TestMultiCollision");
+        DefaultBuildSettings = BuildSettingsVersion.Latest;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+
+        ExtraModuleNames.Add("TestMultiCollision");
 	}
 }

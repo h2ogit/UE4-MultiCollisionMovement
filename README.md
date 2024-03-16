@@ -2,7 +2,7 @@
 
 Movement for character with complex collision shape
 
-Project example for UE 4.18 
+Project example for UE 5.3.2
 
 When you need to have a character with complex collision shape like a vehicle or a space ship or something similar - you will have character capsule size be too much bigger than needed. This will come to some restriction in movement of the character – character will not be able to come close to objects, move in narrow places and etc.
 

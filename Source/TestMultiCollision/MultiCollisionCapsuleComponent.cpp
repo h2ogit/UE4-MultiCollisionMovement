@@ -4,7 +4,7 @@
 UMultiCollisionCapsuleComponent::UMultiCollisionCapsuleComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	BodyInstance.SetCollisionProfileName(FName("Pawn"));
-	bShouldUpdatePhysicsVolume = true;
+	SetShouldUpdatePhysicsVolume(true);
 	CanCharacterStepUpOn = ECB_Yes;
 	SetNotifyRigidBodyCollision(false);
 	SetEnableGravity(false);
@@ -70,7 +70,7 @@ static bool ShouldIgnoreHitResult(const UWorld* InWorld, FHitResult const& TestH
 bool UMultiCollisionCapsuleComponent::SimulateMoveComponent(const class USceneComponent* CharacterRootComponent, const FVector& NewDelta, const FQuat& NewRotation, FHitResult* OutHit, EMoveComponentFlags MoveFlags)
 {
 	// static things can move before they are registered (e.g. immediately after streaming), but not after.
-	if (IsPendingKill() || !IsRegistered() || !GetWorld())
+	if (!IsValid(this) || !IsRegistered() || !GetWorld() || !GetAttachParent())
 	{
 		if (OutHit)
 		{

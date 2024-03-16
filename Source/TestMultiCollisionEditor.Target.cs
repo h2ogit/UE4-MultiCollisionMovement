@@ -8,6 +8,9 @@ public class TestMultiCollisionEditorTarget : TargetRules
 	public TestMultiCollisionEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		ExtraModuleNames.Add("TestMultiCollision");
+        DefaultBuildSettings = BuildSettingsVersion.Latest;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+
+        ExtraModuleNames.Add("TestMultiCollision");
 	}
 }
